@@ -1,0 +1,17 @@
+{
+  "name": "ethiocoffee-co",
+  "version": "1.0.0",
+  "description": "Ethio Coffee Co. - Premium Ethiopian Coffee Roasters in Toronto",
+  "scripts": {
+    "start": "npx serve .",
+    "dev": "npx serve . -l 3000"
+  },
+  "keywords": [
+    "coffee",
+    "ethiopian",
+    "toronto",
+    "roaster"
+  ],
+  "author": "Ethio Coffee Co.",
+  "license": "MIT"
+}
