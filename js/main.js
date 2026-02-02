@@ -69,13 +69,32 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Simple validation
             if (!data.name || !data.email || !data.message) {
-                alert('Please fill in all required fields.');
+                // Show error message
+                const formWrapper = document.querySelector('.contact-form-wrapper');
+                let errorMsg = formWrapper.querySelector('.form-error');
+                if (!errorMsg) {
+                    errorMsg = document.createElement('div');
+                    errorMsg.className = 'form-error';
+                    errorMsg.textContent = 'Please fill in all required fields.';
+                    formWrapper.insertBefore(errorMsg, contactForm);
+                }
+                setTimeout(() => errorMsg.remove(), 3000);
                 return;
             }
 
-            // Show success message (in production, you'd send this to a server)
-            alert('Thank you for your message! We\'ll get back to you soon.');
+            // Show success message
+            const successDiv = document.getElementById('formSuccess');
+            successDiv.style.display = 'flex';
+            contactForm.style.display = 'none';
+            
+            // Reset form
             contactForm.reset();
+            
+            // Optional: Hide success and show form again after 5 seconds
+            setTimeout(() => {
+                successDiv.style.display = 'none';
+                contactForm.style.display = 'flex';
+            }, 5000);
         });
     }
 
