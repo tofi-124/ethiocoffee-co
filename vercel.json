@@ -1,10 +1,9 @@
 {
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/$1" }
-  ],
+  "cleanUrls": true,
+  "trailingSlash": false,
   "headers": [
     {
-      "source": "/(.*)",
+      "source": "/images/(.*)",
       "headers": [
         {
           "key": "Cache-Control",
@@ -13,7 +12,7 @@
       ]
     },
     {
-      "source": "/(.*).html",
+      "source": "/(.*)",
       "headers": [
         {
           "key": "Cache-Control",

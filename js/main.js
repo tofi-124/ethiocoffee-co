@@ -131,9 +131,17 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Current page active link
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const currentPage = window.location.pathname.replace(/\/$/, '') || '/';
+    const pageMap = {
+        '/': '/',
+        '/about': '/about',
+        '/coffee': '/coffee',
+        '/contact': '/contact'
+    };
+    
     navLinks.forEach(link => {
-        if (link.getAttribute('href') === currentPage) {
+        const href = link.getAttribute('href');
+        if (href === currentPage || (currentPage === '/' && href === '/')) {
             link.classList.add('active');
         } else {
             link.classList.remove('active');
